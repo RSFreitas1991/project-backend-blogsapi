@@ -10,6 +10,8 @@ const createUser = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     image: DataTypes.STRING,
+  }, {
+    tableName: 'Users'
   });
   return User;
 };

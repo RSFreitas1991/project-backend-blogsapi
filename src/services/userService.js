@@ -1,8 +1,8 @@
-const { user } = require('../database/models');
+const { User } = require('../database/models');
 
 const userService = {
   async list() {
-    const users = await user.findAll();
+    const users = await User.findAll();
     return users;
   },
 };
