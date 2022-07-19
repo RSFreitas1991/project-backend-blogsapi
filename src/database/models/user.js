@@ -11,7 +11,8 @@ const createUser = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     image: DataTypes.STRING,
   }, {
-    tableName: 'Users'
+    tableName: 'Users',
+    timestamps: false,
   });
   return User;
 };
