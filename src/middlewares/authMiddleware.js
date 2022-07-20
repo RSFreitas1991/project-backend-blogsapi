@@ -8,7 +8,7 @@ const validateToken = (req, res, next) => {
       error.code = 401;
       throw error;
     }
-    jwtService.validadeToken(authorization);
+    jwtService.validateToken(authorization);
     next();
   } catch (error) {
     res.status(error.code).json({ message: error.message });

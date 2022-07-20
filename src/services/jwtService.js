@@ -8,7 +8,7 @@ const jwtService = {
     const token = jwt.sign({ user }, secret);
     return token;
   },
-  validadeToken(token) {
+  validateToken(token) {
     try {
       const validation = jwt.verify(token, secret);
       return validation;
