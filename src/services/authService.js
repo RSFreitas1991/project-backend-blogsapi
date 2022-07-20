@@ -8,13 +8,16 @@ const authService = {
       error.code = 400;
       throw error;
     }
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({
+      attributes: { exclude: ['image'] },
+      where: { email } });
     if (!user || user.password !== passwords) {
       const error = new Error('Invalid fields');
       error.code = 400;
       throw error;
     }
-    const token = jwtService.createToken(user.displayName);
+    const { password, ...userNoPassword } = user.dataValues;
+    const token = jwtService.createToken(userNoPassword);
     return token;
   },
 };
