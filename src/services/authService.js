@@ -20,6 +20,10 @@ const authService = {
     const token = jwtService.createToken(userNoPassword);
     return token;
   },
+  validadeToken(token) {
+    const validate = jwtService.validadeToken(token);
+    return validate;
+  },
 };
 
 module.exports = authService;
