@@ -1,6 +1,6 @@
 const { User } = require('../database/models');
 const jwtService = require('./jwtService');
-//  push pro avaliador avaliar
+
 const authService = {
   async login(email, password) {
     if (!email || !password) {
