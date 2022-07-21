@@ -6,7 +6,7 @@ const authRouter = require('./routers/authRouter');
 // não remova a variável `API_PORT` ou o `listen`
 const port = process.env.API_PORT || 3000;
 
-app.use('/users', userRouter);
+app.use('/user', userRouter);
 app.use('/login', authRouter);
 
 // não remova esse endpoint
