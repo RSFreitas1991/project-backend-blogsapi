@@ -1,20 +1,20 @@
 const sequelize = require('sequelize');
-const blogPosts = require('./blogPosts');
-const categories = require('./categories');
+const blogPost = require('./blogPost');
+const category = require('./category');
 
 const createPostCategory = (sequelize, DataTypes) => {
   const postCategory = sequelize.define('PostCategory', {
     postId: {
       type: DataTypes.INTEGER,
       references: {
-        model: blogPosts,
+        model: blogPost,
         key: 'id'
       }
     },
     categoryId: {
       type: DataTypes.INTEGER,
       references: {
-        model: categories,
+        model: category,
         key: 'id'
       }
     },
