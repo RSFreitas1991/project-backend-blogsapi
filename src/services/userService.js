@@ -36,6 +36,18 @@ const userService = {
     });
     return users;
   },
+  async getUserById(id) {
+    const user = await User.findOne({
+      attributes: { exclude: 'password' },
+      raw: true,
+      where: { id } });
+    if (!user) {
+      const error = new Error('User does not exist');
+      error.code = 404;
+      throw error;
+    }
+    return user;
+  },
   async create(displayName, email, password, image) {
     this.validadeDisplayNameAndPassword(displayName, password);
     await this.validadeEmail(email);
