@@ -4,6 +4,7 @@ const createPostCategory = (sequelize, DataTypes) => {
   const postCategory = sequelize.define('PostCategory', {
     postId: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       references: {
         type: DataTypes.INTEGER,
         foreignKey: true,
@@ -11,6 +12,7 @@ const createPostCategory = (sequelize, DataTypes) => {
     },
     categoryId: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       references: {
         type: DataTypes.INTEGER,
         foreignKey: true,

@@ -12,11 +12,11 @@ const createBlogPost = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       foreignKey: true,
     },
-    published: {
+    updated: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    updated: {
+    published: {
       type: DataTypes.DATE,
       allowNull: false,
     },

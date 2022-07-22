@@ -11,7 +11,7 @@ const postController = {
       const post = await postService.create(title, content, categoryIds, userData);
       res.status(201).json(post);
     } catch (error) {
-      res.status(error.code).json({ message: error.message });
+      res.status(error.code || 404).json({ message: error.message });
     }
   },
 };
