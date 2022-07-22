@@ -10,6 +10,14 @@ const categoriesController = {
       res.status(error.code).json({ message: error.message });
     }
   },
+  async listCategories(req, res) {
+    try {
+      const categories = await categoriesService.list();
+      res.status(200).json(categories);
+    } catch (error) {
+      res.status(error.code).json({ message: error.message });
+    }
+  },
 };
 
 module.exports = { categoriesController };

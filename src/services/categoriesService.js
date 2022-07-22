@@ -12,6 +12,10 @@ const categoriesService = {
       where: { name } });
     return categoryQuery;
   },
+  async list() {
+    const categories = await Category.findAll();
+    return categories;
+  },
 };
 
 module.exports = categoriesService;
