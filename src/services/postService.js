@@ -29,7 +29,7 @@ const postService = {
       limit: 1,
       order: [['id', 'DESC']],    
     });
-    return post;
+    return post[0];
   },
   async create(title, content, categoryIds, userData) {
     const t = await sequelize.transaction();
