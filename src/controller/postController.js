@@ -8,8 +8,9 @@ const postController = {
       const userData = jwtService.validateToken(authorization);
       const { title, content, categoryIds } = req.body;
       await postService.validadeFields(title, content, categoryIds);
+      await postService.categoryIdExists(categoryIds);
       const post = await postService.create(title, content, categoryIds, userData);
-      res.status(201).json(post);
+      return res.status(201).send(post);
     } catch (error) {
       res.status(error.code || 404).json({ message: error.message });
     }
