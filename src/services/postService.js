@@ -56,6 +56,7 @@ const postService = {
       return post;
     } catch (error) {
       await t.rollback();
+      throw error;
     }
   },
 };

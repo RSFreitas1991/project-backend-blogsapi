@@ -2,10 +2,6 @@ const sequelize = require('sequelize');
 
 const createPostCategory = (sequelize, DataTypes) => {
   const postCategory = sequelize.define('PostCategory', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-    },
     postId: {
       type: DataTypes.INTEGER,
       foreignKey: true,
@@ -13,6 +9,7 @@ const createPostCategory = (sequelize, DataTypes) => {
     categoryId: {
       type: DataTypes.INTEGER,
       foreignKey: true,
+      primaryKey: true,
     },
   }, {
     tableName: 'PostCategories',
