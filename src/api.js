@@ -1,13 +1,9 @@
 const express = require('express');
-
-// ...
+const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 
 app.use(express.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(require('./utils/swagger.json')));
 
-// ...
-
-// É importante exportar a constante `app`,
-// para que possa ser utilizada pelo arquivo `src/server.js`
 module.exports = app;
