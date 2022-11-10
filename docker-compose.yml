@@ -1,26 +1,26 @@
-version: "3"
+version: "3.9"
 
 services:
   node:
+    container_name: app_backend
     build: .
-    user: node
-    working_dir: /app
-    volumes:
-      - ./:/app
-    container_name: blogs_api
-    tty: true
-    stdin_open: true
-    command: bash
-    restart: always
-    depends_on:
-      - db
     ports:
       - 3000:3000
+    platform: linux/x86_64
+    working_dir: /app-backend
+    depends_on:
+      db:
+        condition: service_healthy
     environment:
+      API_PORT: 3000
       MYSQL_USER: root
       MYSQL_PASSWORD: password
       HOSTNAME: db
       JWT_SECRET: secretJWT
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3000"] # Caso utilize outra porta interna para o back, altere ela aqui também
+      timeout: 10s
+      retries: 5
   db:
     container_name: blogs_api_db
     image: mysql:8.0.21
@@ -31,6 +31,12 @@ services:
       - 33060:33060
     environment:
       MYSQL_ROOT_PASSWORD: password
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"] # Deve aguardar o banco ficar operacional
+      timeout: 10s
+      retries: 5
+    cap_add:
+      - SYS_NICE # Deve omitir alertas menores
 
 networks:
   default:
