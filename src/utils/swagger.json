@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Blogs API",
+    "description": "API desenvolvida para estudo do Swagger e Sequelize para o backend",
+    "contact": {
+      "email": "raphael.freitasdev@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/user": {
+      "get": {
+        "summary": "Recebe a lista de usuários",
+        "description": "Rota responsável por buscar a lista de usuários",
+        "tags": ["user"]
+      },
+      "post": {
+        "summary": "Adiciona um usuário ao Banco de Dados",
+        "description": "Rota responsável adicionar um usuário ao Banco de Dados",
+        "tags": ["user"]
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "summary": "Recebe um usuário a partir de um ID",
+        "description": "Rota responsável por buscar um usuário a partir de um ID",
+        "tags": ["user"]
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Realize o login na API recebendo um JWT Válido",
+        "description": "Rota responsável por realizar o login na API",
+        "tags": ["login"]
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "Recebe a lista de categorias",
+        "description": "Rota responsável por buscar a lista de categorias",
+        "tags": ["categories"]
+      },
+      "post" : {
+        "summary": "Adiciona uma categoria ao Banco de Dados",
+        "description": "Rota responsável adicionar uma categoria ao Banco de Dados",
+        "tags": ["categories"]
+      }
+    },
+    "/post": {
+      "post": {
+        "summary": "Adiciona uma post no Banco de Dados",
+        "description": "Rota responsável adicionar um post ao Banco de Dados",
+        "tags": ["post"]
+      }
+    }
+  }
+}
