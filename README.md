@@ -1,7 +1,7 @@
 # Blogs API
 
 # Contexto
-O objetivo deste projeto é a criação de um CRUD em uma API REST que simula a gestão de um BLOG
+O objetivo deste projeto é a criação de um CRUD em uma API REST que simula a gestão de um BLOG com validação de JSON Web Token .
 
 ## Rotas disponíveis
 
@@ -9,7 +9,7 @@ O objetivo deste projeto é a criação de um CRUD em uma API REST que simula a 
 
 ## Técnologias usadas
 
-> Desenvolvido usando: Express.JS, mySQL, ES6, Sequelize, Swagger e Docker Compose
+> Desenvolvido usando: Express.JS, mySQL, ES6, Sequelize, Swagger e Docker Compose 3.9
 
 ## Instalando Dependências
 
@@ -19,17 +19,20 @@ npm install
 ## Executando aplicação
 
 > Deve ser configurado um arquivo .env com as seguintes variáveis de ambiente:  
-MYSQL_HOST,  
-MYSQL_USER,  
-MYSQL_PASSWORD,  
-MYSQL_DATABASE,
+      API_PORT,  
+      MYSQL_USER,  
+      MYSQL_PASSWORD,  
+      HOSTNAME,  
+      JWT_SECRET,  
 
   ```
-npm migration && npm seed && npm start
+npm prestart && npm start
+  ```
+## Executando aplicação com docker compose
+
+> Dentro da pasta da aplicação execute:
+
+  ```
+docker compose up -d
   ```
 
-## Executando os testes unitários
-
-  ```
- npm test:mocha
-  ```
